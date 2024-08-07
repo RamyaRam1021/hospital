@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Bills</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Medicine</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <a href="{{ url_for('add_bill') }}" class="btn btn-primary mt-3">Add Bill</a>
+        <tbody>
+            {% for bill in bills %}
+                <tr>
+                    <td>{{ bill.patient_name }}</td>
+                    <td>{{ bill.doctor_name }}</td>
+                    <td>{{ bill.medicine_name }}</td>
+                    <td>{{ bill.amount }}</td>
+                    <td>{{ bill.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
